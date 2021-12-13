@@ -7,6 +7,9 @@
   "bin": "src/index.js",
   "author": "Anand Mohan Tumuluri <anandmohan.tumuluri@philips.com>",
   "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "request": "^2.88.2",
     "request-promise-native": "^1.0.8",
