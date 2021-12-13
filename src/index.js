@@ -55,7 +55,6 @@ async function getLogs(token, opts, query) {
 
 async function main(opts) {
   let tokenRsp = await getToken(opts);
-  // console.log(JSON.stringify(tokenRsp), JSON.stringify(opts))
   var token = tokenRsp.access_token;
   var timer;
   let wait = function (delay, fn) {
