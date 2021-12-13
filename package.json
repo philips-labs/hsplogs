@@ -1,0 +1,15 @@
+{
+  "name": "hsplogs",
+  "version": "1.0.0",
+  "description": "Utility to retrieve logs from HSP filtered by a message pattern and time range",
+  "homepage": "https://github.com/philips-labs/hsplogs",
+  "repository": "github:philips-labs/hsplogs",
+  "bin": "src/index.js",
+  "author": "Anand Mohan Tumuluri <anandmohan.tumuluri@philips.com>",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.8",
+    "yargs": "^15.3.1"
+  }
+}
