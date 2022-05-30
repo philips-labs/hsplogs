@@ -44,7 +44,10 @@ async function getLogs(token, opts, query) {
   while (true) {
     let rsp = await fetch(url, token, query);
     // console.log(JSON.stringify(rsp));
-    let logs = rsp.hits.map(h => `${h._source.LogEvent.logTime}\t${h._source.LogEvent.severity}\t${h._source.LogEvent.applicationName}\t${h._source.LogEvent.component}\t${h._source.LogEvent.logData.message}`).join('');
+    let logs = rsp.hits.map(h => h._source.LogEvent ?
+        `${h._source.LogEvent.logTime}\t${h._source.LogEvent.severity}\t${h._source.LogEvent.applicationName}\t${h._source.LogEvent.component}\t${h._source.LogEvent.logData.message}` :
+        h._source.msg)
+      .join('');
     if (logs)
       console.log(logs);
     let link = rsp.link.find(l => l.relation === 'next');
@@ -94,10 +97,10 @@ async function main(opts) {
     param.query.bool.must[0].range['@timestamp'].lt = i + opts.interval;
     try {
       await getLogs(token, opts, param)
-    } catch(e) {
+    } catch (e) {
       console.error(e)
     }
-    
+
   }
   clearTimeout(timer);
 }
