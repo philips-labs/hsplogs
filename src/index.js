@@ -88,7 +88,7 @@ async function main(opts) {
   if (opts.message) {
     param.query.bool.must.push({
       "match": {
-        "LogEvent.logData.message": opts.message
+        "message": opts.message
       }
     })
   }
